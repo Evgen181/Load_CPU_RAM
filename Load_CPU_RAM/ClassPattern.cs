@@ -10,8 +10,8 @@ namespace Load_CPU_RAM
     {
         private static readonly Random random = new Random(DateTime.Now.Millisecond); // генератор случайных чисел
 
-        static int multiplier = Convert.ToInt32(MainForm.multiplier);
-        static int length = multiplier * 8 * 1024 * 1024 / 24;
+        //static int multiplier = Convert.ToInt32(MainForm.multiplier);
+        static int length = Convert.ToInt32(MainForm.multiplier) * 8 * 1024 * 1024 / 24;
 
 
         private readonly int[] FillPattern = new int[length];

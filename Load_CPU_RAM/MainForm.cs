@@ -14,8 +14,8 @@ namespace Load_CPU_RAM
 {
     public partial class MainForm : Form
     {
-        int numberOfCore = Environment.ProcessorCount;
-        int numberOfStressedCore;
+        
+        int numberOfStressedCore ;
         Thread[] threads;
         int powerFactorOfTest;
 
@@ -35,8 +35,8 @@ namespace Load_CPU_RAM
             btnStop.Enabled = false;
             btnStop.BackColor = Color.LightGray;
 
-            lblTotalCoreValue.Text = numberOfCore.ToString();
-            nudReservedCoreValue.Maximum = numberOfCore - 1;
+            lblTotalCoreValue.Text = Environment.ProcessorCount.ToString();
+            nudReservedCoreValue.Maximum = Environment.ProcessorCount - 1;
         }
 
         bool lblUsedFreeRAM_usage = true; 
@@ -252,7 +252,7 @@ namespace Load_CPU_RAM
             btnStop.BackColor = Color.Lime; 
 
             // Забираем число тестипуемых ядер
-            numberOfStressedCore = numberOfCore - Convert.ToInt32(nudReservedCoreValue.Value);
+            numberOfStressedCore = Environment.ProcessorCount - Convert.ToInt32(nudReservedCoreValue.Value);
 
             nudReservedCoreValue.Enabled = false;
 
